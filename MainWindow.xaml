@@ -1,0 +1,90 @@
+﻿<Window x:Class="WPFtest.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WPFtest"
+        mc:Ignorable="d"
+        Title="Westwood String Table Editor" Height="600" Width="800">
+    <Grid>
+        <Menu>
+            <MenuItem Header="File" >
+                <MenuItem Header="New" ></MenuItem>
+                <MenuItem Header="Open" ></MenuItem>
+                <MenuItem Header="Save" ></MenuItem>
+                <MenuItem Header="Save As" ></MenuItem>
+
+                <MenuItem Header="Import" ></MenuItem>
+                <MenuItem Header="Export" ></MenuItem>
+
+                <MenuItem Header="Close File" ></MenuItem>
+                <MenuItem Header="Close All" ></MenuItem>
+                
+                <MenuItem Header="Exit" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Edit" >
+                <MenuItem Header="Undo" ></MenuItem>
+                <MenuItem Header="Redo" ></MenuItem>
+                <MenuItem Header="Cut" ></MenuItem>
+                <MenuItem Header="Copy" ></MenuItem>
+                <MenuItem Header="Paste" ></MenuItem>
+                <MenuItem Header="Add Extra Value" ></MenuItem>
+                <MenuItem Header="Delete Extra Value" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="View" >
+                <MenuItem Header="Encoding" >
+                    <MenuItem Header="Unicode"></MenuItem>
+                    <MenuItem Header="UTF-8"></MenuItem>
+                    <MenuItem Header="Widnows-1251 (cp1251)"></MenuItem>
+                    <MenuItem Header="OEM (cp866)"></MenuItem>
+                    <MenuItem Header="ASCII (cp1252)"></MenuItem>
+                    <MenuItem Header="Custom"></MenuItem>
+                </MenuItem>
+                
+                <MenuItem Header="Sort By">
+                    <MenuItem Header="By First Category" ></MenuItem>
+                    <MenuItem Header="By Category Tree" ></MenuItem>
+                    <MenuItem Header="Uncategorised" ></MenuItem>
+                </MenuItem>
+                
+                <MenuItem Header="Split Sign" ></MenuItem>
+                <MenuItem Header="Split Strings" ></MenuItem>
+                <MenuItem Header="Tree Of Categories" ></MenuItem>
+                
+                
+                <MenuItem Header="Ordinary Only" ></MenuItem>
+                <MenuItem Header="Extra Only" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Find" >
+                <MenuItem Header="Find" ></MenuItem>
+                <MenuItem Header="Replace" ></MenuItem>
+                
+                <MenuItem Header="Ordinary String" ></MenuItem>
+                <MenuItem Header="Extra String" ></MenuItem>
+                <MenuItem Header="Value" ></MenuItem>
+                <MenuItem Header="Extra Value" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Goto" >
+                <MenuItem Header="Next File" ></MenuItem>
+                <MenuItem Header="Previous File" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Tools" >
+                <MenuItem Header="Change File Encoding" ></MenuItem>
+                <MenuItem Header="Rebase Extra Strings (CSF)" ></MenuItem>
+                <MenuItem Header="Change Language (CSF)" ></MenuItem>
+                <MenuItem Header="Find The Difference" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Preferences" >
+                <MenuItem Header="Themes" ></MenuItem>
+                <MenuItem Header="Colors" ></MenuItem>
+                <MenuItem Header="Hotkeys" ></MenuItem>
+                <MenuItem Header="Autosaves" IsChecked="True" ></MenuItem>
+                <MenuItem Header="Save Open" IsChecked="True" ></MenuItem>
+            </MenuItem>
+            <MenuItem Header="Help" >
+                <MenuItem Header="Documentation" ></MenuItem>
+                <MenuItem Header="About" ></MenuItem>
+            </MenuItem>
+        </Menu>
+    </Grid>
+</Window>
