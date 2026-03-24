@@ -1,0 +1,4 @@
+[submodule "Libs/mah_boi.Tools"]
+	path = Libs/mah_boi.Tools
+	url = https://github.com/MahBoiDeveloper/mah_boi.Tools
+	branch = main
