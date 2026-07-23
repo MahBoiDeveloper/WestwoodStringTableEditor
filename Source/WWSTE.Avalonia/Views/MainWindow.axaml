@@ -34,9 +34,9 @@
                 <MenuItem Header="Encoding" >
                     <MenuItem Header="Unicode"></MenuItem>
                     <MenuItem Header="UTF-8"></MenuItem>
-                    <MenuItem Header="Widnows-1251 (cp1251)"></MenuItem>
-                    <MenuItem Header="OEM (cp866)"></MenuItem>
-                    <MenuItem Header="ASCII (cp1252)"></MenuItem>
+                    <MenuItem Header="Widnows-1251 (CP1251)"></MenuItem>
+                    <MenuItem Header="OEM (CP866)"></MenuItem>
+                    <MenuItem Header="ASCII (CP1252)"></MenuItem>
                     <MenuItem Header="Custom"></MenuItem>
                 </MenuItem>
                 <MenuItem Header="Sort By">
