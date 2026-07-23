@@ -78,11 +78,5 @@
                 <MenuItem Header="About" ></MenuItem>
             </MenuItem>
         </Menu>
-
-    <TextBox 
-             Grid.Row="1"
-             Text="{Binding Greeting}"
-             HorizontalAlignment="Center"
-             VerticalAlignment="Center" />
     </Grid>
 </Window>
