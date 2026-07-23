@@ -1,13 +1,15 @@
-﻿<Window x:Class="WestwoodStringTableEditor.MainWindow"
-        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+﻿<Window xmlns="https://github.com/avaloniaui"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:vm="using:WWSTE.Avalonia.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:local="clr-namespace:WestwoodStringTableEditor"
-        mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid>
-        <Menu>
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="WWSTE.Avalonia.Views.MainWindow"
+        x:DataType="vm:MainViewModel"
+        Icon="/Assets/avalonia-logo.ico"
+        Title="WWSTE.Avalonia">
+    <Grid RowDefinitions="Auto,*">
+        <Menu Grid.Row="0">
             <MenuItem Header="File" Background="#AAAAAA">
                 <MenuItem Header="New" ></MenuItem>
                 <MenuItem Header="Open" ></MenuItem>
@@ -76,5 +78,11 @@
                 <MenuItem Header="About" ></MenuItem>
             </MenuItem>
         </Menu>
+
+    <TextBox 
+             Grid.Row="1"
+             Text="{Binding Greeting}"
+             HorizontalAlignment="Center"
+             VerticalAlignment="Center" />
     </Grid>
 </Window>
