@@ -49,6 +49,11 @@
                 <MenuItem Header="Tree Of Categories" ></MenuItem>
                 <MenuItem Header="Ordinary Only" ></MenuItem>
                 <MenuItem Header="Extra Only" ></MenuItem>
+                <MenuItem Header="Theme">
+                    <MenuItem Header="Light" x:Name="miLight"  Click="MiLight_Click"/>
+                    <MenuItem Header="Dark" x:Name="miDark" Click="MiDark_Click"/>
+                    <MenuItem Header="System" x:Name="miSystem" Click="MiSystem_Click"/>
+                </MenuItem>
             </MenuItem>
             <MenuItem Header="Find" Background="#AAAAAA">
                 <MenuItem Header="Find" ></MenuItem>
