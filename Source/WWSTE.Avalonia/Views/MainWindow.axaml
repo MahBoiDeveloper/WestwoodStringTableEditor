@@ -16,7 +16,6 @@
         >
             <MenuItem 
                 Header="File"
-                Background="#AAAAAA"
             >
                 <MenuItem Header="New" />
                 <MenuItem Header="Open" />
@@ -30,7 +29,6 @@
             </MenuItem>
             <MenuItem 
                 Header="Edit"
-                Background="#AAAAAA"
             >
                 <MenuItem Header="Undo" />
                 <MenuItem Header="Redo" />
@@ -42,7 +40,6 @@
             </MenuItem>
             <MenuItem 
                 Header="View"
-                Background="#AAAAAA"
             >
                 <MenuItem Header="Encoding" >
                     <MenuItem Header="Unicode" />
@@ -65,7 +62,6 @@
             </MenuItem>
             <MenuItem
                 Header="Find"
-                Background="#AAAAAA"
             >
                 <MenuItem Header="Find" />
                 <MenuItem Header="Replace" />
@@ -78,7 +74,6 @@
             </MenuItem>
             <MenuItem
                 Header="Tools"
-                Background="#AAAAAA"
             >
                 <MenuItem Header="Change File Encoding" />
                 <MenuItem Header="Rebase Extra Strings (CSF)" />
@@ -87,7 +82,6 @@
             </MenuItem>
             <MenuItem 
                 Header="Preferences"
-                Background="#AAAAAA"
             >
                 <MenuItem Header="Themes" >
                     <MenuItem 
@@ -113,7 +107,6 @@
             </MenuItem>
             <MenuItem
                 Header="Help"
-                Background="#AAAAAA"
             >
                 <MenuItem Header="Documentation" />
                 <MenuItem Header="About" />
