@@ -8,79 +8,115 @@
         x:DataType="vm:MainViewModel"
         Icon="/Assets/avalonia-logo.ico"
         Title="WWSTE.Avalonia">
-    <Grid RowDefinitions="Auto,*">
-        <Menu Grid.Row="0">
-            <MenuItem Header="File" Background="#AAAAAA">
-                <MenuItem Header="New" ></MenuItem>
-                <MenuItem Header="Open" ></MenuItem>
-                <MenuItem Header="Save" ></MenuItem>
-                <MenuItem Header="Save As" ></MenuItem>
-                <MenuItem Header="Import" ></MenuItem>
-                <MenuItem Header="Export" ></MenuItem>
-                <MenuItem Header="Close File" ></MenuItem>
-                <MenuItem Header="Close All" ></MenuItem>
-                <MenuItem Header="Exit" ></MenuItem>
+    <Grid 
+        RowDefinitions="Auto,*"
+    >
+        <Menu 
+            Grid.Row="0"
+        >
+            <MenuItem 
+                Header="File"
+                Background="#AAAAAA"
+            >
+                <MenuItem Header="New" />
+                <MenuItem Header="Open" />
+                <MenuItem Header="Save" />
+                <MenuItem Header="Save As" />
+                <MenuItem Header="Import" />
+                <MenuItem Header="Export" />
+                <MenuItem Header="Close File" />
+                <MenuItem Header="Close All" />
+                <MenuItem Header="Exit" />
             </MenuItem>
-            <MenuItem Header="Edit" Background="#AAAAAA">
-                <MenuItem Header="Undo" ></MenuItem>
-                <MenuItem Header="Redo" ></MenuItem>
-                <MenuItem Header="Cut" ></MenuItem>
-                <MenuItem Header="Copy" ></MenuItem>
-                <MenuItem Header="Paste" ></MenuItem>
-                <MenuItem Header="Add Extra Value" ></MenuItem>
-                <MenuItem Header="Delete Extra Value" ></MenuItem>
+            <MenuItem 
+                Header="Edit"
+                Background="#AAAAAA"
+            >
+                <MenuItem Header="Undo" />
+                <MenuItem Header="Redo" />
+                <MenuItem Header="Cut" />
+                <MenuItem Header="Copy" />
+                <MenuItem Header="Paste" />
+                <MenuItem Header="Add Extra Value" />
+                <MenuItem Header="Delete Extra Value" />
             </MenuItem>
-            <MenuItem Header="View" Background="#AAAAAA">
+            <MenuItem 
+                Header="View"
+                Background="#AAAAAA"
+            >
                 <MenuItem Header="Encoding" >
-                    <MenuItem Header="Unicode"></MenuItem>
-                    <MenuItem Header="UTF-8"></MenuItem>
-                    <MenuItem Header="Widnows-1251 (CP1251)"></MenuItem>
-                    <MenuItem Header="OEM (CP866)"></MenuItem>
-                    <MenuItem Header="ASCII (CP1252)"></MenuItem>
-                    <MenuItem Header="Custom"></MenuItem>
+                    <MenuItem Header="Unicode" />
+                    <MenuItem Header="UTF-8" />
+                    <MenuItem Header="Widnows-1251 (CP1251)" />
+                    <MenuItem Header="OEM (CP866)" />
+                    <MenuItem Header="ASCII (CP1252)" />
+                    <MenuItem Header="Custom" />
                 </MenuItem>
                 <MenuItem Header="Sort By">
-                    <MenuItem Header="By First Category" ></MenuItem>
-                    <MenuItem Header="By Category Tree" ></MenuItem>
-                    <MenuItem Header="Uncategorised" ></MenuItem>
+                    <MenuItem Header="By First Category" />
+                    <MenuItem Header="By Category Tree" />
+                    <MenuItem Header="Uncategorised" />
                 </MenuItem>
-                <MenuItem Header="Split Sign" ></MenuItem>
-                <MenuItem Header="Split Strings" ></MenuItem>
-                <MenuItem Header="Tree Of Categories" ></MenuItem>
-                <MenuItem Header="Ordinary Only" ></MenuItem>
-                <MenuItem Header="Extra Only" ></MenuItem>
-                <MenuItem Header="Theme">
-                    <MenuItem Header="Light" x:Name="miLight"  Click="MiLight_Click"/>
-                    <MenuItem Header="Dark" x:Name="miDark" Click="MiDark_Click"/>
-                    <MenuItem Header="System" x:Name="miSystem" Click="MiSystem_Click"/>
+                <MenuItem Header="Split Sign" />
+                <MenuItem Header="Split Strings" />
+                <MenuItem Header="Tree Of Categories" />
+                <MenuItem Header="Ordinary Only" />
+                <MenuItem Header="Extra Only" />
+            </MenuItem>
+            <MenuItem
+                Header="Find"
+                Background="#AAAAAA"
+            >
+                <MenuItem Header="Find" />
+                <MenuItem Header="Replace" />
+                <MenuItem Header="Ordinary String" />
+                <MenuItem Header="Extra String" />
+                <MenuItem Header="Value" />
+                <MenuItem Header="Extra Value" />
+                <MenuItem Header="Next File" />
+                <MenuItem Header="Previous File" />
+            </MenuItem>
+            <MenuItem
+                Header="Tools"
+                Background="#AAAAAA"
+            >
+                <MenuItem Header="Change File Encoding" />
+                <MenuItem Header="Rebase Extra Strings (CSF)" />
+                <MenuItem Header="Change Language (CSF)" />
+                <MenuItem Header="Find The Difference" />
+            </MenuItem>
+            <MenuItem 
+                Header="Preferences"
+                Background="#AAAAAA"
+            >
+                <MenuItem Header="Themes" >
+                    <MenuItem 
+                        x:Name="miLight"
+                        Header="Light"
+                        Click="MiLight_Click"
+                    />
+                    <MenuItem 
+                        x:Name="miDark"
+                        Header="Dark"
+                        Click="MiDark_Click"
+                    />
+                    <MenuItem 
+                        x:Name="miSystem"
+                        Header="System"
+                        Click="MiSystem_Click"
+                    />
                 </MenuItem>
+                <MenuItem Header="Colors" />
+                <MenuItem Header="Hotkeys" />
+                <MenuItem Header="Autosaves" IsChecked="True" />
+                <MenuItem Header="Save Open" IsChecked="True" />
             </MenuItem>
-            <MenuItem Header="Find" Background="#AAAAAA">
-                <MenuItem Header="Find" ></MenuItem>
-                <MenuItem Header="Replace" ></MenuItem>
-                <MenuItem Header="Ordinary String" ></MenuItem>
-                <MenuItem Header="Extra String" ></MenuItem>
-                <MenuItem Header="Value" ></MenuItem>
-                <MenuItem Header="Extra Value" ></MenuItem>
-                <MenuItem Header="Next File" ></MenuItem>
-                <MenuItem Header="Previous File" ></MenuItem>
-            </MenuItem>
-            <MenuItem Header="Tools" Background="#AAAAAA">
-                <MenuItem Header="Change File Encoding" ></MenuItem>
-                <MenuItem Header="Rebase Extra Strings (CSF)" ></MenuItem>
-                <MenuItem Header="Change Language (CSF)" ></MenuItem>
-                <MenuItem Header="Find The Difference" ></MenuItem>
-            </MenuItem>
-            <MenuItem Header="Preferences" Background="#AAAAAA">
-                <MenuItem Header="Themes" ></MenuItem>
-                <MenuItem Header="Colors" ></MenuItem>
-                <MenuItem Header="Hotkeys" ></MenuItem>
-                <MenuItem Header="Autosaves" IsChecked="True" ></MenuItem>
-                <MenuItem Header="Save Open" IsChecked="True" ></MenuItem>
-            </MenuItem>
-            <MenuItem Header="Help" Background="#AAAAAA">
-                <MenuItem Header="Documentation" ></MenuItem>
-                <MenuItem Header="About" ></MenuItem>
+            <MenuItem
+                Header="Help"
+                Background="#AAAAAA"
+            >
+                <MenuItem Header="Documentation" />
+                <MenuItem Header="About" />
             </MenuItem>
         </Menu>
     </Grid>
