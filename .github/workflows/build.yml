@@ -17,24 +17,21 @@ jobs:
           submodules: true
 
       - name: Setup .NET
-        uses: actions/setup-dotnet@v4
+        uses: actions/setup-dotnet@v5
         with:
           dotnet-version: 10.0.x
 
-      - name: Restore
-        run: dotnet restore
-
       - name: Build
-        run: dotnet build -c Release --no-restore
+        run: dotnet build -c Release
 
       - name: Test
         run: dotnet test -c Release --no-build --verbosity normal
 
       - name: Publish
-        run: dotnet publish -c Release -o artifacts/publish --no-restore
+        run: dotnet publish -c Release -o artifacts/publish
 
       - name: Upload build artifacts
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v5
         with:
           name: build-artifacts
           path: artifacts/publish
