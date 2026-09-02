@@ -33,4 +33,4 @@ jobs:
         uses: actions/upload-artifact@v6
         with:
           name: artifacts
-          path: Source/WWSTE.Avalonia/bin/Release/net10.0
+          path: Source/Avalonia/bin/Release/net10.0

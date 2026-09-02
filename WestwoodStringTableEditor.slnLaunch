@@ -1,0 +1,11 @@
+[
+  {
+    "Name": "WWSTE.Avalonia",
+    "Projects": [
+      {
+        "Path": "Source\\Avalonia\\WWSTE.Avalonia.csproj",
+        "Action": "Start"
+      }
+    ]
+  }
+]
