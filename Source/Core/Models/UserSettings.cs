@@ -4,7 +4,7 @@ using System.Text;
 using Rampastring.Tools;
 using Rampastring.Tools.Ini;
 
-namespace WWSTE.Avalonia.Models;
+namespace WWSTE.Core.Models;
 
 public class UserSettings
 {

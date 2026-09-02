@@ -8,11 +8,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-	  <ProjectReference Include="../../Libs/mah_boi.Tools/Source/Tools/mah_boi.Tools.csproj"></ProjectReference>
-  </ItemGroup>
-	
-  <ItemGroup>
-    <AvaloniaResource Include="Assets\**" />
+    <ProjectReference Include="../Core/WWSTE.Core.csproj" />
   </ItemGroup>
 
   <ItemGroup>

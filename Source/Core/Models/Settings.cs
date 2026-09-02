@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WWSTE.Avalonia.Models;
+namespace WWSTE.Core.Models;
 
 public struct Settings
 {
