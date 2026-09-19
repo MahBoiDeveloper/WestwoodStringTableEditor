@@ -112,5 +112,23 @@
                 <MenuItem Header="About" />
             </MenuItem>
         </Menu>
+        <TabControl Grid.Row="1">
+            <TabItem Header="Empty" >
+                <TreeView>
+                    <TreeViewItem Header="GUI">
+                        <TreeView>
+                            <TreeViewItem>
+                                <TableView>
+                                    
+                                </TableView>
+                            </TreeViewItem>
+                            <TreeViewItem>
+
+                            </TreeViewItem>
+                        </TreeView>
+                    </TreeViewItem>
+                </TreeView>
+            </TabItem>
+        </TabControl>
     </Grid>
 </Window>
