@@ -3,17 +3,184 @@
         xmlns:vm="using:WWSTE.Avalonia.ViewModels"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        mc:Ignorable="d" d:DesignWidth="1360" d:DesignHeight="820"
         x:Class="WWSTE.Avalonia.Views.MainWindow"
         x:DataType="vm:MainViewModel"
         Icon="avares://WWSTE.Core/Assets/app.ico"
-        Title="Westwood String Table Editor">
-    <Grid 
-        RowDefinitions="Auto,*"
-    >
-        <Menu 
-            Grid.Row="0"
-        >
+        Title="{Binding WindowTitle}"
+        Width="1280"
+        Height="720"
+        MinWidth="900"
+        MinHeight="560"
+        FontSize="10"
+        WindowStartupLocation="CenterScreen"
+        Background="{DynamicResource AppBackgroundBrush}"
+        Foreground="{DynamicResource AppTextBrush}">
+
+    <Window.Styles>
+        <Style Selector="Menu.MainMenu">
+            <Setter Property="Height" Value="26" />
+            <Setter Property="Padding" Value="6,0" />
+            <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}" />
+            <Setter Property="BorderThickness" Value="0,0,0,1" />
+        </Style>
+
+        <Style Selector="Button.ToolButton">
+            <Setter Property="Width" Value="30" />
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Padding" Value="6" />
+            <Setter Property="CornerRadius" Value="4" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource AppTextSecondaryBrush}" />
+        </Style>
+        <Style Selector="Button.ToolButton:pointerover">
+            <Setter Property="Background" Value="{DynamicResource AppHoverBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}" />
+        </Style>
+        <Style Selector="Button.ToolButton:pressed">
+            <Setter Property="Background" Value="{DynamicResource AppAccentSoftBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource AppAccentBrush}" />
+        </Style>
+
+        <Style Selector="Button.PrimaryButton">
+            <Setter Property="Height" Value="28" />
+            <Setter Property="Padding" Value="10,0" />
+            <Setter Property="CornerRadius" Value="4" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="{DynamicResource AppAccentBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource AppAccentTextBrush}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="Button.PrimaryButton:pointerover">
+            <Setter Property="Background" Value="{DynamicResource AppAccentHoverBrush}" />
+        </Style>
+
+        <Style Selector="ToggleButton.ModeButton">
+            <Setter Property="Height" Value="26" />
+            <Setter Property="Padding" Value="8,0" />
+            <Setter Property="CornerRadius" Value="4" />
+            <Setter Property="BorderThickness" Value="0" />
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource AppTextSecondaryBrush}" />
+        </Style>
+        <Style Selector="ToggleButton.ModeButton:checked">
+            <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+        </Style>
+        <Style Selector="ToggleButton.ModeButton:checked /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}" />
+        </Style>
+        <Style Selector="ToggleButton.ModeButton:checked:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}" />
+            <Setter Property="BorderBrush" Value="Transparent" />
+            <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}" />
+        </Style>
+
+        <Style Selector="Border.Pane">
+            <Setter Property="Background" Value="{DynamicResource AppSurfaceBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="6" />
+        </Style>
+
+        <Style Selector="Border.FieldShell">
+            <Setter Property="Background" Value="{DynamicResource AppInputBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="4" />
+        </Style>
+
+        <Style Selector="TextBox.EditorField">
+            <Setter Property="Background" Value="{DynamicResource AppInputBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}" />
+            <Setter Property="BorderThickness" Value="1" />
+            <Setter Property="CornerRadius" Value="4" />
+            <Setter Property="Padding" Value="7,5" />
+            <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}" />
+        </Style>
+
+        <Style Selector="ComboBox.EditorField">
+            <Setter Property="Height" Value="30" />
+            <Setter Property="Background" Value="{DynamicResource AppInputBrush}" />
+            <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}" />
+            <Setter Property="CornerRadius" Value="4" />
+        </Style>
+
+        <Style Selector="ListBox.CategoryList">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style Selector="ListBox.CategoryList > ListBoxItem">
+            <Setter Property="MinHeight" Value="34" />
+            <Setter Property="Margin" Value="4,0" />
+            <Setter Property="Padding" Value="7,3" />
+            <Setter Property="CornerRadius" Value="4" />
+            <Setter Property="HorizontalContentAlignment" Value="Stretch" />
+        </Style>
+        <Style Selector="ListBox.CategoryList > ListBoxItem:pointerover">
+            <Setter Property="Background" Value="{DynamicResource AppHoverBrush}" />
+        </Style>
+        <Style Selector="ListBox.CategoryList > ListBoxItem:selected">
+            <Setter Property="Background" Value="{DynamicResource AppAccentSoftBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource AppAccentBrush}" />
+        </Style>
+        <Style Selector="ListBox.CategoryList > ListBoxItem:selected /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource AppAccentSoftBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource AppAccentBrush}" />
+        </Style>
+        <Style Selector="ListBox.CategoryList > ListBoxItem:selected:pointerover /template/ ContentPresenter#PART_ContentPresenter">
+            <Setter Property="Background" Value="{DynamicResource AppAccentSoftBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource AppAccentBrush}" />
+        </Style>
+
+        <Style Selector="TableView">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="BorderThickness" Value="0" />
+        </Style>
+        <Style Selector="TableViewRow">
+            <Setter Property="MinHeight" Value="36" />
+            <Setter Property="BorderBrush" Value="{DynamicResource AppDividerBrush}" />
+            <Setter Property="BorderThickness" Value="0,0,0,1" />
+        </Style>
+        <Style Selector="TableViewRow:pointerover">
+            <Setter Property="Background" Value="{DynamicResource AppHoverBrush}" />
+        </Style>
+        <Style Selector="TableViewRow:selected">
+            <Setter Property="Background" Value="{DynamicResource AppAccentSoftBrush}" />
+            <Setter Property="Foreground" Value="{DynamicResource AppTextBrush}" />
+        </Style>
+        <Style Selector="TableViewRow:selected /template/ Border#Border">
+            <Setter Property="Background" Value="{DynamicResource AppAccentSoftBrush}" />
+        </Style>
+
+        <Style Selector="GridSplitter.WorkspaceSplitter">
+            <Setter Property="Background" Value="Transparent" />
+            <Setter Property="Margin" Value="1,12" />
+        </Style>
+        <Style Selector="GridSplitter.WorkspaceSplitter:pointerover">
+            <Setter Property="Background" Value="{DynamicResource AppAccentBrush}" />
+        </Style>
+
+        <Style Selector="TextBlock.SectionLabel">
+            <Setter Property="FontSize" Value="10" />
+            <Setter Property="FontWeight" Value="SemiBold" />
+            <Setter Property="Foreground" Value="{DynamicResource AppTextMutedBrush}" />
+        </Style>
+        <Style Selector="TextBlock.SecondaryText">
+            <Setter Property="Foreground" Value="{DynamicResource AppTextSecondaryBrush}" />
+        </Style>
+        <Style Selector="TextBlock.MutedText">
+            <Setter Property="Foreground" Value="{DynamicResource AppTextMutedBrush}" />
+        </Style>
+    </Window.Styles>
+
+    <Grid RowDefinitions="Auto,44,30,*,24">
+        <Menu Grid.Row="0" Classes="MainMenu">
             <MenuItem 
                 Header="File"
             >
@@ -30,13 +197,18 @@
             <MenuItem 
                 Header="Edit"
             >
+                <MenuItem Header="Add String" Command="{Binding AddEntryCommand}" />
+                <MenuItem Header="Duplicate String" Command="{Binding DuplicateEntryCommand}" />
+                <MenuItem Header="Delete String" Command="{Binding DeleteEntryCommand}" />
+                <Separator />
                 <MenuItem Header="Undo" />
                 <MenuItem Header="Redo" />
+                <Separator />
                 <MenuItem Header="Cut" />
                 <MenuItem Header="Copy" />
                 <MenuItem Header="Paste" />
-                <MenuItem Header="Add Extra Value" />
-                <MenuItem Header="Delete Extra Value" />
+                <Separator />
+                <MenuItem Header="Add / Remove Extra Value" Command="{Binding ToggleExtraValueCommand}" />
             </MenuItem>
             <MenuItem 
                 Header="View"
@@ -44,7 +216,7 @@
                 <MenuItem Header="Encoding" >
                     <MenuItem Header="Unicode" />
                     <MenuItem Header="UTF-8" />
-                    <MenuItem Header="Widnows-1251 (CP1251)" />
+                    <MenuItem Header="Windows-1251 (CP1251)" />
                     <MenuItem Header="OEM (CP866)" />
                     <MenuItem Header="ASCII (CP1252)" />
                     <MenuItem Header="Custom" />
@@ -112,23 +284,721 @@
                 <MenuItem Header="About" />
             </MenuItem>
         </Menu>
-        <TabControl Grid.Row="1">
-            <TabItem Header="Empty" >
-                <TreeView>
-                    <TreeViewItem Header="GUI">
-                        <TreeView>
-                            <TreeViewItem>
-                                <TableView>
-                                    
-                                </TableView>
-                            </TreeViewItem>
-                            <TreeViewItem>
+        <Border Grid.Row="1"
+                Background="{DynamicResource AppSurfaceBrush}"
+                BorderBrush="{DynamicResource AppDividerBrush}"
+                BorderThickness="0,0,0,1">
+            <Grid Margin="8,0" ColumnDefinitions="Auto,Auto,Auto,*,Auto,Auto">
+                <StackPanel Grid.Column="0" Orientation="Horizontal" Spacing="2" VerticalAlignment="Center">
+                    <Button Classes="ToolButton"
+                            AutomationProperties.Name="New file"
+                            ToolTip.Tip="New file">
+                        <PathIcon Width="14"
+                                  Height="14"
+                                  Foreground="{Binding $parent[Button].Foreground}"
+                                  Data="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2M14 4L18 8H14V4Z" />
+                    </Button>
+                    <Button Classes="ToolButton"
+                            AutomationProperties.Name="Open file"
+                            ToolTip.Tip="Open file">
+                        <PathIcon Width="14"
+                                  Height="14"
+                                  Foreground="{Binding $parent[Button].Foreground}"
+                                  Data="M20 18H4V8H20M20 6H12L10 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V8C22 6.9 21.1 6 20 6Z" />
+                    </Button>
+                    <Button Classes="ToolButton"
+                            AutomationProperties.Name="Save file"
+                            ToolTip.Tip="Save file">
+                        <PathIcon Width="14"
+                                  Height="14"
+                                  Foreground="{Binding $parent[Button].Foreground}"
+                                  Data="M17 3H5C3.9 3 3 3.9 3 5V19C3 20.1 3.9 21 5 21H19C20.1 21 21 20.1 21 19V7L17 3M12 19C10.34 19 9 17.66 9 16C9 14.34 10.34 13 12 13C13.66 13 15 14.34 15 16C15 17.66 13.66 19 12 19M15 9H5V5H15V9Z" />
+                    </Button>
+                </StackPanel>
 
-                            </TreeViewItem>
-                        </TreeView>
-                    </TreeViewItem>
-                </TreeView>
-            </TabItem>
-        </TabControl>
+                <Border Grid.Column="1"
+                        Width="1"
+                        Height="20"
+                        Margin="6,0"
+                        Background="{DynamicResource AppDividerBrush}"
+                        VerticalAlignment="Center" />
+
+                <StackPanel Grid.Column="2" Orientation="Horizontal" Spacing="2" VerticalAlignment="Center">
+                    <Button Classes="PrimaryButton" Command="{Binding AddEntryCommand}" ToolTip.Tip="Add string">
+                        <StackPanel Orientation="Horizontal" Spacing="5">
+                            <PathIcon Width="13"
+                                      Height="13"
+                                      Foreground="{DynamicResource AppAccentTextBrush}"
+                                      Data="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                            <TextBlock Text="Add string"
+                                       Foreground="{DynamicResource AppAccentTextBrush}"
+                                       VerticalAlignment="Center" />
+                        </StackPanel>
+                    </Button>
+                    <Button Classes="ToolButton"
+                            Command="{Binding DuplicateEntryCommand}"
+                            AutomationProperties.Name="Duplicate selected string"
+                            ToolTip.Tip="Duplicate selected string">
+                        <PathIcon Width="14"
+                                  Height="14"
+                                  Foreground="{Binding $parent[Button].Foreground}"
+                                  Data="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1M19 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5M19 21H8V7H19V21Z" />
+                    </Button>
+                    <Button Classes="ToolButton"
+                            Command="{Binding DeleteEntryCommand}"
+                            AutomationProperties.Name="Delete selected string"
+                            ToolTip.Tip="Delete selected string">
+                        <PathIcon Width="14"
+                                  Height="14"
+                                  Foreground="{DynamicResource AppDangerBrush}"
+                                  Data="M19 6.5L17.5 5L12 10.5L6.5 5L5 6.5L10.5 12L5 17.5L6.5 19L12 13.5L17.5 19L19 17.5L13.5 12L19 6.5Z" />
+                    </Button>
+                    <Border Width="1"
+                            Height="20"
+                            Margin="4,0"
+                            Background="{DynamicResource AppDividerBrush}"
+                            VerticalAlignment="Center" />
+                    <Button Classes="ToolButton"
+                            AutomationProperties.Name="Undo"
+                            ToolTip.Tip="Undo">
+                        <PathIcon Width="14"
+                                  Height="14"
+                                  Foreground="{Binding $parent[Button].Foreground}"
+                                  Data="M12.5 8C9.85 8 7.45 9 5.6 10.6L2 7V16H11L7.38 12.38C8.79 11.22 10.57 10.5 12.5 10.5C16.04 10.5 19.05 12.81 20.1 16L22.47 15.22C21.08 11.04 17.15 8 12.5 8Z" />
+                    </Button>
+                    <Button Classes="ToolButton"
+                            AutomationProperties.Name="Redo"
+                            ToolTip.Tip="Redo">
+                        <PathIcon Width="14"
+                                  Height="14"
+                                  Foreground="{Binding $parent[Button].Foreground}"
+                                  Data="M11.5 8C14.15 8 16.55 9 18.4 10.6L22 7V16H13L16.62 12.38C15.21 11.22 13.43 10.5 11.5 10.5C7.96 10.5 4.95 12.81 3.9 16L1.53 15.22C2.92 11.04 6.85 8 11.5 8Z" />
+                    </Button>
+                </StackPanel>
+
+                <Border Grid.Column="3"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Padding="2"
+                        CornerRadius="5"
+                        Background="{DynamicResource AppSurfaceMutedBrush}"
+                        BorderBrush="{DynamicResource AppDividerBrush}"
+                        BorderThickness="1">
+                    <StackPanel Orientation="Horizontal" Spacing="2">
+                        <ToggleButton Classes="ModeButton"
+                                      Content="Categories"
+                                      IsChecked="{Binding IsCategoryMode, Mode=OneWay}"
+                                      Command="{Binding ShowCategoriesCommand}" />
+                        <ToggleButton Classes="ModeButton"
+                                      Content="All strings"
+                                      IsChecked="{Binding IsAllStringsMode, Mode=OneWay}"
+                                      Command="{Binding ShowAllStringsCommand}" />
+                    </StackPanel>
+                </Border>
+
+                <Border Grid.Column="4"
+                        Classes="FieldShell"
+                        Width="216"
+                        Height="28"
+                        Margin="8,0,6,0"
+                        VerticalAlignment="Center">
+                    <Grid ColumnDefinitions="28,*,26">
+                        <PathIcon Grid.Column="0"
+                                  Width="13"
+                                  Height="13"
+                                  Foreground="{DynamicResource AppTextMutedBrush}"
+                                  Data="M9.5 3C5.91 3 3 5.91 3 9.5C3 13.09 5.91 16 9.5 16C11.11 16 12.58 15.41 13.72 14.44L19.28 20L20.7 18.58L15.14 13.03C15.68 12.03 16 10.83 16 9.5C16 5.91 13.09 3 9.5 3M9.5 5C11.99 5 14 7.01 14 9.5C14 11.99 11.99 14 9.5 14C7.01 14 5 11.99 5 9.5C5 7.01 7.01 5 9.5 5Z" />
+                        <TextBox Grid.Column="1"
+                                 Text="{Binding SearchText, Mode=TwoWay}"
+                                 PlaceholderText="Search labels and values…"
+                                 AutomationProperties.Name="Search strings"
+                                 Background="Transparent"
+                                 BorderThickness="0"
+                                 Padding="0"
+                                 VerticalContentAlignment="Center" />
+                        <Button Grid.Column="2"
+                                Classes="ToolButton"
+                                Width="24"
+                                Height="24"
+                                 Padding="5"
+                                 Command="{Binding ClearSearchCommand}"
+                                 AutomationProperties.Name="Clear search"
+                                 ToolTip.Tip="Clear search">
+                            <PathIcon Width="10"
+                                      Height="10"
+                                      Foreground="{Binding $parent[Button].Foreground}"
+                                      Data="M18.3 5.71L16.89 4.29L12 9.17L7.11 4.29L5.7 5.71L10.59 10.59L5.7 15.48L7.11 16.89L12 12L16.89 16.89L18.3 15.48L13.41 10.59L18.3 5.71Z" />
+                        </Button>
+                    </Grid>
+                </Border>
+
+                <ComboBox Grid.Column="5"
+                          Width="76"
+                          Height="28"
+                          ItemsSource="{Binding MaskOptions}"
+                          SelectedItem="{Binding SelectedMask, Mode=TwoWay}"
+                          AutomationProperties.Name="Filter mask"
+                          VerticalAlignment="Center"
+                          ToolTip.Tip="Filter mask" />
+            </Grid>
+        </Border>
+
+        <Border Grid.Row="2"
+                Background="{DynamicResource AppSurfaceMutedBrush}"
+                BorderBrush="{DynamicResource AppDividerBrush}"
+                BorderThickness="0,0,0,1">
+            <StackPanel Margin="8,0" Orientation="Horizontal" VerticalAlignment="Bottom">
+                <Border Height="27"
+                        MinWidth="160"
+                        Padding="9,0"
+                        Background="{DynamicResource AppSurfaceBrush}"
+                        BorderBrush="{DynamicResource AppDividerBrush}"
+                        BorderThickness="1,1,1,0"
+                        CornerRadius="5,5,0,0">
+                    <Grid ColumnDefinitions="Auto,*,Auto" VerticalAlignment="Center">
+                        <PathIcon Grid.Column="0"
+                                  Width="12"
+                                  Height="12"
+                                  Margin="0,0,6,0"
+                                  Foreground="{DynamicResource AppAccentBrush}"
+                                  Data="M14 2H6C4.9 2 4 2.9 4 4V20C4 21.1 4.9 22 6 22H18C19.1 22 20 21.1 20 20V8L14 2M14 4L18 8H14V4Z" />
+                        <TextBlock Grid.Column="1"
+                                   Text="{Binding DocumentTitle}"
+                                   FontSize="10"
+                                   FontWeight="SemiBold"
+                                   VerticalAlignment="Center" />
+                        <Button Grid.Column="2"
+                                Classes="ToolButton"
+                                Width="22"
+                                 Height="22"
+                                 Margin="6,0,0,0"
+                                 Padding="4"
+                                 AutomationProperties.Name="Close file"
+                                 ToolTip.Tip="Close file">
+                            <PathIcon Width="10"
+                                      Height="10"
+                                      Foreground="{Binding $parent[Button].Foreground}"
+                                      Data="M18.3 5.71L16.89 4.29L12 9.17L7.11 4.29L5.7 5.71L10.59 10.59L5.7 15.48L7.11 16.89L12 12L16.89 16.89L18.3 15.48L13.41 10.59L18.3 5.71Z" />
+                        </Button>
+                    </Grid>
+                </Border>
+                <Button Classes="ToolButton"
+                        Width="26"
+                        Height="24"
+                         Margin="3,0,0,1"
+                         Content="+"
+                         FontSize="12"
+                         AutomationProperties.Name="Open another file"
+                         ToolTip.Tip="Open another file" />
+            </StackPanel>
+        </Border>
+
+        <Grid x:Name="WorkspaceRoot"
+              Grid.Row="3"
+              Margin="6,6,6,5"
+              ColumnDefinitions="Auto,Auto,*,5,328">
+            <Border Grid.Column="0"
+                    Width="190"
+                    Classes="Pane"
+                    IsVisible="{Binding IsCategoryMode}">
+                <Grid RowDefinitions="Auto,Auto,*,Auto">
+                    <Border Grid.Row="0"
+                            Padding="10,8"
+                            BorderBrush="{DynamicResource AppDividerBrush}"
+                            BorderThickness="0,0,0,1">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel>
+                                <TextBlock Text="CATEGORIES" Classes="SectionLabel" />
+                                <TextBlock Text="Browse by label prefix"
+                                           Margin="0,2,0,0"
+                                           Classes="MutedText"
+                                           FontSize="9" />
+                            </StackPanel>
+                            <Button Grid.Column="1"
+                                    Classes="ToolButton"
+                                    Width="24"
+                                     Height="24"
+                                     Content="+"
+                                     FontSize="12"
+                                     AutomationProperties.Name="Add category"
+                                     ToolTip.Tip="Add category" />
+                        </Grid>
+                    </Border>
+
+                    <Border Grid.Row="1"
+                            Margin="6"
+                            Padding="7"
+                            CornerRadius="5"
+                            Background="{DynamicResource AppSurfaceMutedBrush}"
+                            BorderBrush="{DynamicResource AppDividerBrush}"
+                            BorderThickness="1">
+                        <Grid ColumnDefinitions="26,*">
+                            <Border Grid.Column="0"
+                                    Width="24"
+                                    Height="24"
+                                    CornerRadius="5"
+                                    Background="{DynamicResource AppAccentSoftBrush}">
+                                <TextBlock Text="C"
+                                           Foreground="{DynamicResource AppAccentBrush}"
+                                           FontWeight="Bold"
+                                           HorizontalAlignment="Center"
+                                           VerticalAlignment="Center" />
+                            </Border>
+                            <StackPanel Grid.Column="1" Margin="6,0,0,0">
+                                <TextBlock Text="Command &amp; Conquer"
+                                           FontSize="10"
+                                           FontWeight="SemiBold" />
+                                <TextBlock Text="ra2md.csf"
+                                           Margin="0,1,0,0"
+                                           Classes="MutedText"
+                                           FontSize="9" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <ListBox Grid.Row="2"
+                             Classes="CategoryList"
+                             ItemsSource="{Binding Categories}"
+                             SelectedItem="{Binding SelectedCategory, Mode=TwoWay}"
+                             SelectionMode="Single"
+                             ScrollViewer.HorizontalScrollBarVisibility="Disabled">
+                        <ListBox.ItemTemplate>
+                            <DataTemplate x:DataType="vm:CategoryItemViewModel">
+                                <Grid ColumnDefinitions="20,*,Auto">
+                                    <TextBlock Grid.Column="0"
+                                               Text="{Binding Glyph}"
+                                               Foreground="{DynamicResource AppAccentBrush}"
+                                               FontSize="11"
+                                               HorizontalAlignment="Center"
+                                               VerticalAlignment="Center" />
+                                    <StackPanel Grid.Column="1" Margin="6,0">
+                                        <TextBlock Text="{Binding Name}"
+                                                   FontSize="10"
+                                                   FontWeight="SemiBold" />
+                                        <TextBlock Text="{Binding Description}"
+                                                   Margin="0,1,0,0"
+                                                   Classes="MutedText"
+                                                   FontSize="9"
+                                                   TextTrimming="CharacterEllipsis" />
+                                    </StackPanel>
+                                    <Border Grid.Column="2"
+                                            MinWidth="22"
+                                            Height="17"
+                                            Padding="5,0"
+                                            CornerRadius="8"
+                                            Background="{DynamicResource AppSurfaceMutedBrush}"
+                                            VerticalAlignment="Center">
+                                        <TextBlock Text="{Binding Count}"
+                                                   Classes="SecondaryText"
+                                                   FontSize="9"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center" />
+                                    </Border>
+                                </Grid>
+                            </DataTemplate>
+                        </ListBox.ItemTemplate>
+                    </ListBox>
+
+                    <Border Grid.Row="3"
+                            Margin="6"
+                            Padding="7,5"
+                            CornerRadius="5"
+                            Background="{DynamicResource AppAccentSoftBrush}">
+                        <Grid ColumnDefinitions="Auto,*">
+                            <Ellipse Width="5"
+                                     Height="5"
+                                     Margin="0,0,6,0"
+                                     Fill="{DynamicResource AppAccentBrush}"
+                                     VerticalAlignment="Center" />
+                            <TextBlock Grid.Column="1"
+                                       Text="Category mode is active"
+                                       Foreground="{DynamicResource AppAccentBrush}"
+                                       FontSize="9"
+                                       VerticalAlignment="Center" />
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+
+            <GridSplitter Grid.Column="1"
+                          Classes="WorkspaceSplitter"
+                          Width="5"
+                          IsVisible="{Binding IsCategoryMode}"
+                          ResizeDirection="Columns"
+                          ShowsPreview="True" />
+
+            <Border Grid.Column="2" Classes="Pane">
+                <Grid RowDefinitions="Auto,*">
+                    <Border Grid.Row="0"
+                            Padding="10,7"
+                            BorderBrush="{DynamicResource AppDividerBrush}"
+                            BorderThickness="0,0,0,1">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel VerticalAlignment="Center">
+                                <StackPanel Orientation="Horizontal" Spacing="6">
+                                    <TextBlock Text="STRINGS" Classes="SectionLabel" VerticalAlignment="Center" />
+                                    <Border Padding="5,1"
+                                            CornerRadius="7"
+                                            Background="{DynamicResource AppAccentSoftBrush}">
+                                        <TextBlock Text="{Binding ResultCountText}"
+                                                   Foreground="{DynamicResource AppAccentBrush}"
+                                                   FontSize="9" />
+                                    </Border>
+                                </StackPanel>
+                                <TextBlock Text="Select a row to edit its value"
+                                           Margin="0,2,0,0"
+                                           Classes="MutedText"
+                                           FontSize="9" />
+                            </StackPanel>
+                            <StackPanel Grid.Column="1" Orientation="Horizontal" Spacing="5">
+                                <TextBlock Text="Sort"
+                                           Classes="MutedText"
+                                           FontSize="10"
+                                           VerticalAlignment="Center" />
+                                <ComboBox Width="84"
+                                          Height="26"
+                                          ItemsSource="{Binding SortOptions}"
+                                          SelectedItem="{Binding SelectedSort, Mode=TwoWay}"
+                                          AutomationProperties.Name="Sort strings" />
+                            </StackPanel>
+                        </Grid>
+                    </Border>
+
+                    <TableView Grid.Row="1"
+                               ItemsSource="{Binding FilteredEntries}"
+                               SelectedItem="{Binding SelectedEntry, Mode=TwoWay}"
+                               SelectionMode="Single"
+                               CanUserResizeColumns="True">
+                        <TableView.Columns>
+                            <TableViewColumn Header="LABEL" Width="1.25*">
+                                <TableViewColumn.CellTemplate>
+                                    <DataTemplate x:DataType="vm:StringEntryViewModel">
+                                        <Grid Margin="7,0,4,0" ColumnDefinitions="6,*">
+                                            <Ellipse Width="4"
+                                                     Height="4"
+                                                     Fill="{DynamicResource AppWarningBrush}"
+                                                     IsVisible="{Binding IsModified}"
+                                                     HorizontalAlignment="Left"
+                                                     VerticalAlignment="Center" />
+                                            <StackPanel Grid.Column="1"
+                                                        Margin="4,0,0,0"
+                                                        VerticalAlignment="Center">
+                                                <TextBlock Text="{Binding Name}"
+                                                           FontSize="10"
+                                                           FontWeight="SemiBold"
+                                                           TextTrimming="CharacterEllipsis" />
+                                                <TextBlock Text="{Binding Category}"
+                                                           Margin="0,1,0,0"
+                                                           Classes="MutedText"
+                                                           FontSize="9" />
+                                            </StackPanel>
+                                        </Grid>
+                                    </DataTemplate>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
+                            <TableViewColumn Header="VALUE" Width="2*">
+                                <TableViewColumn.CellTemplate>
+                                    <DataTemplate x:DataType="vm:StringEntryViewModel">
+                                        <TextBlock Text="{Binding Value}"
+                                                   Margin="7,0"
+                                                   Classes="SecondaryText"
+                                                   FontSize="10"
+                                                   MaxLines="1"
+                                                   TextTrimming="CharacterEllipsis"
+                                                   TextWrapping="NoWrap"
+                                                   VerticalAlignment="Center" />
+                                    </DataTemplate>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
+                            <TableViewColumn Header="EXTRA" Width="56">
+                                <TableViewColumn.CellTemplate>
+                                    <DataTemplate x:DataType="vm:StringEntryViewModel">
+                                        <TextBlock Text="{Binding ExtraValueDisplay}"
+                                                   Margin="4,0"
+                                                   Classes="MutedText"
+                                                   FontSize="9"
+                                                   HorizontalAlignment="Center"
+                                                   VerticalAlignment="Center" />
+                                    </DataTemplate>
+                                </TableViewColumn.CellTemplate>
+                            </TableViewColumn>
+                        </TableView.Columns>
+                    </TableView>
+                </Grid>
+            </Border>
+
+            <GridSplitter Grid.Column="3"
+                          Classes="WorkspaceSplitter"
+                          ResizeDirection="Columns"
+                          ShowsPreview="True" />
+
+            <Border x:Name="EditorPane" Grid.Column="4" Classes="Pane">
+                <Grid RowDefinitions="Auto,*,Auto">
+                    <Border Grid.Row="0"
+                            Padding="10,8"
+                            BorderBrush="{DynamicResource AppDividerBrush}"
+                            BorderThickness="0,0,0,1">
+                        <Grid ColumnDefinitions="*,Auto">
+                            <StackPanel>
+                                <TextBlock Text="STRING EDITOR" Classes="SectionLabel" />
+                                <TextBlock Text="Edit the selected table entry"
+                                           Margin="0,2,0,0"
+                                           Classes="MutedText"
+                                           FontSize="9" />
+                            </StackPanel>
+                            <Border Grid.Column="1"
+                                    Padding="6,2"
+                                    CornerRadius="8"
+                                    Background="{DynamicResource AppAccentSoftBrush}"
+                                    IsVisible="{Binding SelectedEntry.IsModified}"
+                                    VerticalAlignment="Center">
+                                <StackPanel Orientation="Horizontal" Spacing="4">
+                                    <Ellipse Width="4"
+                                             Height="4"
+                                             Fill="{DynamicResource AppWarningBrush}"
+                                             VerticalAlignment="Center" />
+                                    <TextBlock Text="Modified"
+                                               Foreground="{DynamicResource AppAccentBrush}"
+                                               FontSize="9"
+                                               FontWeight="SemiBold" />
+                                </StackPanel>
+                            </Border>
+                        </Grid>
+                    </Border>
+
+                    <ScrollViewer Grid.Row="1"
+                                  VerticalScrollBarVisibility="Auto"
+                                  HorizontalScrollBarVisibility="Disabled"
+                                  IsEnabled="{Binding HasSelection}">
+                        <StackPanel Margin="10" Spacing="10">
+                            <Grid ColumnDefinitions="*,Auto">
+                                <TextBlock Text="IDENTITY" Classes="SectionLabel" VerticalAlignment="Center" />
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding SelectionPositionText}"
+                                           Classes="MutedText"
+                                           FontSize="9"
+                                           VerticalAlignment="Center" />
+                            </Grid>
+
+                            <StackPanel Spacing="4">
+                                <TextBlock Text="Label"
+                                           FontSize="10"
+                                           FontWeight="SemiBold" />
+                                <TextBox Classes="EditorField"
+                                         Text="{Binding SelectedEntry.Name, Mode=TwoWay}"
+                                         AutomationProperties.Name="String label"
+                                         PlaceholderText="STRING:LABEL" />
+                                <TextBlock Text="Use a category prefix followed by a colon."
+                                           Classes="MutedText"
+                                           FontSize="9" />
+                            </StackPanel>
+
+                            <StackPanel Spacing="4">
+                                <TextBlock Text="Category"
+                                           FontSize="10"
+                                           FontWeight="SemiBold" />
+                                <ComboBox Classes="EditorField"
+                                          ItemsSource="{Binding CategoryNames}"
+                                          SelectedItem="{Binding SelectedEntry.Category, Mode=TwoWay}"
+                                          AutomationProperties.Name="Entry category" />
+                            </StackPanel>
+
+                            <Border Height="1"
+                                    Margin="0,1"
+                                    Background="{DynamicResource AppDividerBrush}" />
+
+                            <Grid ColumnDefinitions="*,Auto">
+                                <TextBlock Text="VALUE" Classes="SectionLabel" VerticalAlignment="Center" />
+                                <TextBlock Grid.Column="1"
+                                           Text="{Binding SelectedEntry.CharacterCountText}"
+                                           Classes="MutedText"
+                                           FontSize="9"
+                                           VerticalAlignment="Center" />
+                            </Grid>
+
+                            <TextBox Classes="EditorField"
+                                     MinHeight="112"
+                                     Text="{Binding SelectedEntry.Value, Mode=TwoWay}"
+                                     AutomationProperties.Name="String value"
+                                     PlaceholderText="Enter the localized value…"
+                                     AcceptsReturn="True"
+                                     TextWrapping="Wrap"
+                                     VerticalContentAlignment="Top"
+                                     ScrollViewer.VerticalScrollBarVisibility="Auto" />
+
+                            <Grid ColumnDefinitions="*,Auto">
+                                <StackPanel>
+                                    <TextBlock Text="EXTRA VALUE" Classes="SectionLabel" />
+                                    <TextBlock Text="Optional audio or metadata reference"
+                                               Margin="0,2,0,0"
+                                               Classes="MutedText"
+                                               FontSize="9" />
+                                </StackPanel>
+                                <Button Grid.Column="1"
+                                        Classes="ToolButton"
+                                         Width="24"
+                                         Height="24"
+                                         Command="{Binding ToggleExtraValueCommand}"
+                                         AutomationProperties.Name="Add or clear extra value"
+                                         ToolTip.Tip="Add or clear extra value">
+                                    <PathIcon Width="12"
+                                              Height="12"
+                                              Foreground="{Binding $parent[Button].Foreground}"
+                                              Data="M19 13H13V19H11V13H5V11H11V5H13V11H19V13Z" />
+                                </Button>
+                            </Grid>
+
+                            <TextBox Classes="EditorField"
+                                     MinHeight="44"
+                                     Text="{Binding SelectedEntry.ExtraValue, Mode=TwoWay}"
+                                     AutomationProperties.Name="Extra value"
+                                     PlaceholderText="No extra value"
+                                     AcceptsReturn="True"
+                                     TextWrapping="Wrap"
+                                     VerticalContentAlignment="Top" />
+
+                            <Border Padding="8"
+                                    CornerRadius="5"
+                                    Background="{DynamicResource AppSurfaceMutedBrush}"
+                                    BorderBrush="{DynamicResource AppDividerBrush}"
+                                    BorderThickness="1">
+                                <Grid RowDefinitions="Auto,Auto,Auto"
+                                      ColumnDefinitions="*,Auto">
+                                    <TextBlock Grid.Row="0"
+                                               Text="Format"
+                                               Classes="MutedText"
+                                               FontSize="9" />
+                                    <TextBlock Grid.Row="0"
+                                               Grid.Column="1"
+                                               Text="CSF v3"
+                                               FontSize="9"
+                                               FontWeight="SemiBold" />
+                                    <TextBlock Grid.Row="1"
+                                               Margin="0,5,0,0"
+                                               Text="Encoding"
+                                               Classes="MutedText"
+                                               FontSize="9" />
+                                    <TextBlock Grid.Row="1"
+                                               Grid.Column="1"
+                                               Margin="0,5,0,0"
+                                               Text="Unicode"
+                                               FontSize="9"
+                                               FontWeight="SemiBold" />
+                                    <TextBlock Grid.Row="2"
+                                               Margin="0,5,0,0"
+                                               Text="Language"
+                                               Classes="MutedText"
+                                               FontSize="9" />
+                                    <TextBlock Grid.Row="2"
+                                               Grid.Column="1"
+                                               Margin="0,5,0,0"
+                                               Text="English (US)"
+                                               FontSize="9"
+                                               FontWeight="SemiBold" />
+                                </Grid>
+                            </Border>
+
+                            <StackPanel Spacing="4">
+                                <TextBlock Text="PREVIEW" Classes="SectionLabel" />
+                                <Border MinHeight="44"
+                                        Padding="8"
+                                        CornerRadius="5"
+                                        Background="{DynamicResource AppAccentSoftBrush}">
+                                    <TextBlock Text="{Binding SelectedEntry.Value}"
+                                               Foreground="{DynamicResource AppAccentBrush}"
+                                               FontSize="10"
+                                               TextWrapping="Wrap"
+                                               VerticalAlignment="Center" />
+                                </Border>
+                            </StackPanel>
+                        </StackPanel>
+                    </ScrollViewer>
+
+                    <Border Grid.Row="2"
+                            Padding="8,6"
+                            BorderBrush="{DynamicResource AppDividerBrush}"
+                            BorderThickness="0,1,0,0">
+                        <Grid ColumnDefinitions="*,Auto,Auto">
+                            <StackPanel Orientation="Horizontal" Spacing="5" VerticalAlignment="Center">
+                                <Ellipse Width="5"
+                                         Height="5"
+                                         Fill="{DynamicResource AppSuccessBrush}" />
+                                <TextBlock Text="Edits apply instantly"
+                                           Classes="MutedText"
+                                           FontSize="9" />
+                            </StackPanel>
+                            <Button Grid.Column="1"
+                                    Classes="ToolButton"
+                                    Width="28"
+                                     Height="26"
+                                     Margin="0,0,3,0"
+                                     Command="{Binding DuplicateEntryCommand}"
+                                     AutomationProperties.Name="Duplicate string"
+                                     ToolTip.Tip="Duplicate string">
+                                <PathIcon Width="12"
+                                          Height="12"
+                                          Foreground="{Binding $parent[Button].Foreground}"
+                                          Data="M16 1H4C2.9 1 2 1.9 2 3V17H4V3H16V1M19 5H8C6.9 5 6 5.9 6 7V21C6 22.1 6.9 23 8 23H19C20.1 23 21 22.1 21 21V7C21 5.9 20.1 5 19 5M19 21H8V7H19V21Z" />
+                            </Button>
+                            <Button Grid.Column="2"
+                                    Classes="ToolButton"
+                                     Width="28"
+                                     Height="26"
+                                     Command="{Binding DeleteEntryCommand}"
+                                     AutomationProperties.Name="Delete string"
+                                     ToolTip.Tip="Delete string">
+                                <PathIcon Width="12"
+                                          Height="12"
+                                          Foreground="{DynamicResource AppDangerBrush}"
+                                          Data="M19 6.5L17.5 5L12 10.5L6.5 5L5 6.5L10.5 12L5 17.5L6.5 19L12 13.5L17.5 19L19 17.5L13.5 12L19 6.5Z" />
+                            </Button>
+                        </Grid>
+                    </Border>
+                </Grid>
+            </Border>
+        </Grid>
+
+        <Border Grid.Row="4"
+                Background="{DynamicResource AppSurfaceBrush}"
+                BorderBrush="{DynamicResource AppDividerBrush}"
+                BorderThickness="0,1,0,0">
+            <Grid Margin="8,0" ColumnDefinitions="Auto,Auto,*,Auto,Auto,Auto">
+                <Ellipse Grid.Column="0"
+                         Width="6"
+                         Height="6"
+                         Margin="0,0,5,0"
+                         Fill="{DynamicResource AppSuccessBrush}"
+                         VerticalAlignment="Center" />
+                <TextBlock Grid.Column="1"
+                           Text="Ready"
+                           FontSize="10"
+                           VerticalAlignment="Center" />
+                <TextBlock Grid.Column="2"
+                           Text="CSF document · changes are tracked automatically"
+                           Margin="12,0,0,0"
+                           Classes="MutedText"
+                           FontSize="10"
+                           VerticalAlignment="Center" />
+                <TextBlock Grid.Column="3"
+                           Text="{Binding ResultCountText}"
+                           Classes="SecondaryText"
+                           FontSize="10"
+                           VerticalAlignment="Center" />
+                <Border Grid.Column="4"
+                        Width="1"
+                        Height="12"
+                        Margin="8,0"
+                        Background="{DynamicResource AppDividerBrush}"
+                        VerticalAlignment="Center" />
+                <StackPanel Grid.Column="5" Orientation="Horizontal" Spacing="10" VerticalAlignment="Center">
+                    <TextBlock Text="{Binding SelectionPositionText}"
+                               Classes="SecondaryText"
+                               FontSize="10" />
+                    <TextBlock Text="CSF · Unicode · English (US)"
+                               Classes="SecondaryText"
+                               FontSize="10" />
+                </StackPanel>
+            </Grid>
+        </Border>
     </Grid>
 </Window>

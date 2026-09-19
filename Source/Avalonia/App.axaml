@@ -2,7 +2,50 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              x:Class="WWSTE.Avalonia.App"
              RequestedThemeVariant="Default">
-             <!-- "Default" ThemeVariant follows system theme variant. "Dark" or "Light" are other available options. -->
+    <!-- "Default" follows the operating-system theme. -->
+
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.ThemeDictionaries>
+                <ResourceDictionary x:Key="Light">
+                    <SolidColorBrush x:Key="AppBackgroundBrush">#F3F5F8</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppSurfaceBrush">#FFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppSurfaceMutedBrush">#F8F9FB</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppInputBrush">#FBFCFE</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppDividerBrush">#DFE4EB</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppHoverBrush">#EEF1F5</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppTextBrush">#172033</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppTextSecondaryBrush">#5D687A</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppTextMutedBrush">#667085</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppAccentBrush">#5668D9</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppAccentHoverBrush">#4659C7</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppAccentSoftBrush">#EBEDFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppAccentTextBrush">#FFFFFF</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppSuccessBrush">#269968</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppWarningBrush">#D58525</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppDangerBrush">#D34D59</SolidColorBrush>
+                </ResourceDictionary>
+                <ResourceDictionary x:Key="Dark">
+                    <SolidColorBrush x:Key="AppBackgroundBrush">#11161D</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppSurfaceBrush">#181E27</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppSurfaceMutedBrush">#1D242E</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppInputBrush">#131922</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppDividerBrush">#2C3542</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppHoverBrush">#242C37</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppTextBrush">#F1F4F8</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppTextSecondaryBrush">#ADB6C4</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppTextMutedBrush">#929CAB</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppAccentBrush">#8291FF</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppAccentHoverBrush">#95A1FF</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppAccentSoftBrush">#293252</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppAccentTextBrush">#101521</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppSuccessBrush">#4AC18A</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppWarningBrush">#E8A54D</SolidColorBrush>
+                    <SolidColorBrush x:Key="AppDangerBrush">#F0717B</SolidColorBrush>
+                </ResourceDictionary>
+            </ResourceDictionary.ThemeDictionaries>
+        </ResourceDictionary>
+    </Application.Resources>
 
     <Application.Styles>
         <FluentTheme />
