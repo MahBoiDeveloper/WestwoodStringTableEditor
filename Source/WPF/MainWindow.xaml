@@ -1,0 +1,112 @@
+﻿<Window x:Class="WWSTE.WPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WWSTE.WPF"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid 
+        RowDefinitions="Auto,*"
+    >
+        <Menu 
+            Grid.Row="0"
+        >
+            <MenuItem 
+                Header="File"
+            >
+                <MenuItem Header="New" />
+                <MenuItem Header="Open" />
+                <MenuItem Header="Save" />
+                <MenuItem Header="Save As" />
+                <MenuItem Header="Import" />
+                <MenuItem Header="Export" />
+                <MenuItem Header="Close File" />
+                <MenuItem Header="Close All" />
+                <MenuItem Header="Exit" />
+            </MenuItem>
+            <MenuItem 
+                Header="Edit"
+            >
+                <MenuItem Header="Undo" />
+                <MenuItem Header="Redo" />
+                <MenuItem Header="Cut" />
+                <MenuItem Header="Copy" />
+                <MenuItem Header="Paste" />
+                <MenuItem Header="Add Extra Value" />
+                <MenuItem Header="Delete Extra Value" />
+            </MenuItem>
+            <MenuItem 
+                Header="View"
+            >
+                <MenuItem Header="Encoding" >
+                    <MenuItem Header="Unicode" />
+                    <MenuItem Header="UTF-8" />
+                    <MenuItem Header="Widnows-1251 (CP1251)" />
+                    <MenuItem Header="OEM (CP866)" />
+                    <MenuItem Header="ASCII (CP1252)" />
+                    <MenuItem Header="Custom" />
+                </MenuItem>
+                <MenuItem Header="Sort By">
+                    <MenuItem Header="By First Category" />
+                    <MenuItem Header="By Category Tree" />
+                    <MenuItem Header="Uncategorised" />
+                </MenuItem>
+                <MenuItem Header="Split Sign" />
+                <MenuItem Header="Split Strings" />
+                <MenuItem Header="Tree Of Categories" />
+                <MenuItem Header="Ordinary Only" />
+                <MenuItem Header="Extra Only" />
+            </MenuItem>
+            <MenuItem
+                Header="Find"
+            >
+                <MenuItem Header="Find" />
+                <MenuItem Header="Replace" />
+                <MenuItem Header="Ordinary String" />
+                <MenuItem Header="Extra String" />
+                <MenuItem Header="Value" />
+                <MenuItem Header="Extra Value" />
+                <MenuItem Header="Next File" />
+                <MenuItem Header="Previous File" />
+            </MenuItem>
+            <MenuItem
+                Header="Tools"
+            >
+                <MenuItem Header="Change File Encoding" />
+                <MenuItem Header="Rebase Extra Strings (CSF)" />
+                <MenuItem Header="Change Language (CSF)" />
+                <MenuItem Header="Find The Difference" />
+            </MenuItem>
+            <MenuItem 
+                Header="Preferences"
+            >
+                <MenuItem Header="Themes" >
+                    <MenuItem 
+                        x:Name="miLight"
+                        Header="Light"
+                    />
+                    <MenuItem 
+                        x:Name="miDark"
+                        Header="Dark"
+                    />
+                    <MenuItem 
+                        x:Name="miSystem"
+                        Header="System"
+                    />
+                </MenuItem>
+                <MenuItem Header="Colors" />
+                <MenuItem Header="Hotkeys" />
+                <MenuItem Header="Autosaves" IsChecked="True" />
+                <MenuItem Header="Save Open" IsChecked="True" />
+            </MenuItem>
+            <MenuItem
+                Header="Help"
+            >
+                <MenuItem Header="Documentation" />
+                <MenuItem Header="About" />
+            </MenuItem>
+        </Menu>
+        
+    </Grid>
+</Window>
