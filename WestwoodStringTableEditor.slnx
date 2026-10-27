@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="Libs/mah_boi.Tools/Libs/Rampastring.Tools/Rampastring.Tools.csproj" />
+  <Project Path="Libs/mah_boi.Tools/Source/Tools/mah_boi.Tools.csproj" />
+  <Project Path="Source/Avalonia/WWSTE.Avalonia.csproj" />
+  <Project Path="Source/Core/WWSTE.Core.csproj" />
+  <Project Path="Source/WPF/WWSTE.WPF.csproj" />
+</Solution>
