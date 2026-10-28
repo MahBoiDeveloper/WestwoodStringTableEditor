@@ -11,16 +11,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WWSTE.WPF.Views
+namespace WWSTE.WPF.Views;
+
+/// <summary>
+/// Interaction logic for DifferencePage.xaml
+/// </summary>
+public partial class DifferencePage : Window
 {
-    /// <summary>
-    /// Interaction logic for DifferencePage.xaml
-    /// </summary>
-    public partial class DifferencePage : Page
+    public DifferencePage()
     {
-        public DifferencePage()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }

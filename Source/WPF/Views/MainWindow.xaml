@@ -110,6 +110,6 @@
                 <MenuItem Header="About" />
             </MenuItem>
         </Menu>
-        <Page Grid.Row="1"/>
+        
     </Grid>
 </Window>

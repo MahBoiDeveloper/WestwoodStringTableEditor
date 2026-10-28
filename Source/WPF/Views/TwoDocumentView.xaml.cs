@@ -11,16 +11,15 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WWSTE.WPF.Views
+namespace WWSTE.WPF.Views;
+
+/// <summary>
+/// Interaction logic for TwoDocumentView.xaml
+/// </summary>
+public partial class TwoDocumentView : Window
 {
-    /// <summary>
-    /// Interaction logic for TwoDocumentView.xaml
-    /// </summary>
-    public partial class TwoDocumentView : Page
+    public TwoDocumentView()
     {
-        public TwoDocumentView()
-        {
-            InitializeComponent();
-        }
+        InitializeComponent();
     }
 }
