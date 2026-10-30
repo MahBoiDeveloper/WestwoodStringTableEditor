@@ -9,6 +9,19 @@
       Title="TranslationUpdateView">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="text"></TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="текст"></TextBlock>
+
+        <TextBlock Grid.Row="1" Grid.Column="0" Text="sample"></TextBlock>
+        <TextBlock Grid.Row="1" Grid.Column="1" Text="пример"></TextBlock>
     </Grid>
 </Window>

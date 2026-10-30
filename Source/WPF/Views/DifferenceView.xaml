@@ -9,6 +9,12 @@
       Title="DifferencePage">
 
     <Grid>
-        
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="text"></TextBlock>
+        <TextBlock Grid.Row="0" Grid.Column="1" Text="sample"></TextBlock>
     </Grid>
 </Window>

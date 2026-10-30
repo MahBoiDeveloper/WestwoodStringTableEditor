@@ -8,18 +8,18 @@ using System.Windows.Documents;
 using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace WWSTE.WPF.Views;
-
-/// <summary>
-/// Interaction logic for TwoDocumentView.xaml
-/// </summary>
-public partial class TwoDocumentView : Window
+namespace WWSTE.WPF.Views
 {
-    public TwoDocumentView()
+    /// <summary>
+    /// Interaction logic for SimpleView.xaml
+    /// </summary>
+    public partial class SimpleView : Window
     {
-        InitializeComponent();
+        public SimpleView()
+        {
+            InitializeComponent();
+        }
     }
 }
