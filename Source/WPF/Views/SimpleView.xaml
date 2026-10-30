@@ -7,6 +7,33 @@
         mc:Ignorable="d"
         d:DesignHeight="450" d:DesignWidth="800">
     <Grid>
-        
+        <Grid.RowDefinitions>
+            <RowDefinition x:Name="TopRow" Height="*"/>
+            <RowDefinition Height="2"/>
+            <RowDefinition x:Name="BottomRow" Height="*"/>
+        </Grid.RowDefinitions>
+
+        <TextBox
+            Grid.Row="0"
+            AcceptsReturn="True"
+            TextWrapping="Wrap"
+            VerticalScrollBarVisibility="Auto"
+        />
+
+        <GridSplitter
+            Grid.Row="1"
+            HorizontalAlignment="Stretch"
+            VerticalAlignment="Stretch"
+            ResizeDirection="Rows"
+            ResizeBehavior="PreviousAndNext"
+            PreviewMouseLeftButtonDown="Splitter_PreviewMouseLeftButtonDown"
+        />
+
+        <TextBox
+            Grid.Row="2"
+            AcceptsReturn="True"
+            TextWrapping="Wrap"
+            VerticalScrollBarVisibility="Auto"
+        />
     </Grid>
 </UserControl>
