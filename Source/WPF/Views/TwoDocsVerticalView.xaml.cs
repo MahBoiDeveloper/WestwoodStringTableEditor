@@ -16,7 +16,7 @@ namespace WWSTE.WPF.Views;
 /// <summary>
 /// Interaction logic for TwoDocsVerticalView.xaml
 /// </summary>
-public partial class TwoDocsVerticalView : Window
+public partial class TwoDocsVerticalView : UserControl
 {
     public TwoDocsVerticalView()
     {

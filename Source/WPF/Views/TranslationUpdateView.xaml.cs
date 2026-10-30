@@ -16,7 +16,7 @@ namespace WWSTE.WPF.Views;
 /// <summary>
 /// Interaction logic for TranslationUpdateView.xaml
 /// </summary>
-public partial class TranslationUpdateView : Window
+public partial class TranslationUpdateView : UserControl
 {
     public TranslationUpdateView()
     {

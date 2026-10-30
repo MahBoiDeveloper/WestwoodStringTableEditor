@@ -15,7 +15,7 @@ namespace WWSTE.WPF.Views
     /// <summary>
     /// Interaction logic for SimpleView.xaml
     /// </summary>
-    public partial class SimpleView : Window
+    public partial class SimpleView : UserControl
     {
         public SimpleView()
         {

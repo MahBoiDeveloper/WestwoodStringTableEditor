@@ -42,6 +42,25 @@
             <MenuItem 
                 Header="View"
             >
+                <MenuItem Header="Layout">
+                    <MenuItem x:Name="SimpleViewMenuItem"
+                              Header="Simple"
+                              IsCheckable="True"
+                              Click="ViewMenuItem_Click" />
+                    <MenuItem x:Name="TwoDocsVerticalViewMenuItem"
+                              Header="Two Documents (Vertical)"
+                              IsCheckable="True"
+                              Click="ViewMenuItem_Click" />
+                    <MenuItem x:Name="TwoDocsHorizontalViewMenuItem"
+                              Header="Two Documents (Horizontal)"
+                              IsCheckable="True"
+                              Click="ViewMenuItem_Click" />
+                    <MenuItem x:Name="TranslationUpdateViewMenuItem"
+                              Header="Translation Update"
+                              IsCheckable="True"
+                              Click="ViewMenuItem_Click" />
+                </MenuItem>
+                <Separator />
                 <MenuItem Header="Encoding" >
                     <MenuItem Header="Unicode" />
                     <MenuItem Header="UTF-8" />
@@ -110,6 +129,9 @@
                 <MenuItem Header="About" />
             </MenuItem>
         </Menu>
-        
+        <ContentControl x:Name="ViewContent"
+                        Grid.Row="1"
+                        HorizontalContentAlignment="Stretch"
+                        VerticalContentAlignment="Stretch" />
     </Grid>
 </Window>
